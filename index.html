@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <meta charset="utf-8">
+    <script type="importmap">{ "imports": { "./modules.js": "./modules.bundle.js" } }</script>
+    <title>Solar Simulation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="webcomponents-bundle.js"></script>
+    <link href="Roboto.css" rel="stylesheet">
+    <link href="Material+Icons.css" rel="stylesheet">
+    <link href="Raleway.css" rel="stylesheet">
+    <link rel="stylesheet" href="/index.css">
+    <script>
+        const _customElementsDefine = window.customElements.define;
+        window.customElements.define = (name, cl, conf) => {
+          if (!customElements.get(name)) {
+            _customElementsDefine.call(window.customElements, name, cl, conf);
+          }
+          else {
+            console.warn(`${name} has been defined twice`);
+          }
+        };
+    </script>
+<body>
+<script type="module" src="solar-simulation.js"></script>
+<solar-simulation>
+</solar-simulation>
+</body>
+</html>
